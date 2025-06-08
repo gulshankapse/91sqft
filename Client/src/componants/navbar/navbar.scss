@@ -1,0 +1,161 @@
+@import "../../responsive";
+
+nav {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //background-color: #2a373f;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    //padding-left: 20px;
+    color: black;
+
+    @include sm {
+        height: 35px;
+    }
+
+    a {
+        transition: all 0.4s ease;
+
+        @include sm {
+            display: none;
+        }
+
+        &:hover {
+            scale: 1.02;
+        }
+    }
+
+    .left {
+        flex: 3;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+
+            img {
+                width: 28px;
+
+                @include sm {
+                    width: 16px;
+                }
+            }
+
+            span {
+                font-size: 25px;
+
+                @include sm {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .right {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        gap: 40px;
+
+        @include sm {
+            gap: 15px;
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            @include sm {
+                gap: 5px;
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+                border-radius: 50%;
+
+                @include sm {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            span {
+                @include sm {
+                    font-size: 10px;
+                }
+            }
+        }
+        .signup,
+        .profile {
+            height: 30px;
+            padding: 5px 15px;
+            border-radius: 3px;
+            color: white;
+            //background-color: #fece51;
+            //background: linear-gradient(to right, #ff416c, #ff8c44);
+            //background-color: #57bf99;
+            //background-color: #e1cead;
+            background-color: black;
+
+            @include sm {
+                display: none;
+            }
+        }
+
+        .menuicon {
+            display: none; // hide by default
+
+            @include sm {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%; // ensures vertical centering
+                z-index: 1000;
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .menubar {
+            position: absolute;
+            background-color: black;
+            color: white;
+            top: 0;
+            right: -50%;
+            height: 100vh;
+            width: 50%;
+            transition: all 1s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+
+            &.active {
+                right: 0;
+            }
+
+            @include sm {
+                a {
+                    display: initial;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+import "./navbar.scss";
+import { useContext, useState } from "react";
+import { authContext } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+function Navbar() {
+    const [open, setOpen] = useState(false); // For the responsive menu
+    const navigate = useNavigate();
+    const { currentUser, updateUser } = useContext(authContext);
+
+    return (
+        <nav>
+            <div className="left">
+                <a href="/" className="logo">
+                    <img src="/91.png" alt="logo" />
+                    <span>sqft.</span>
+                </a>
+                <a href="/">Home</a>
+                <a href="/">About</a>
+                <a href="/">Contacts</a>
+                <a href="/">Agents</a>
+            </div>
+            <div className="right">
+                {currentUser ? (
+                    <>
+                        <div className="user">
+                            <img
+                                src={currentUser.profilePic || "/noDP.png"}
+                                alt="User Profile"
+                            />
+                            <span>{currentUser.username}</span>
+                        </div>
+                        <a href="/user" className="profile">
+                            Profile
+                        </a>
+                        <div className="menuicon">
+                            <img
+                                src="/menu.png"
+                                alt="Menu Icon"
+                                onClick={() => setOpen((prev) => !prev)}
+                            />
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <a href="/login">Sign In</a>
+                        <a href="/register" className="signup">
+                            Sign up
+                        </a>
+                        <div className="menuicon">
+                            <img
+                                src="/menu.png"
+                                alt="Menu Icon"
+                                onClick={() => setOpen((prev) => !prev)}
+                            />
+                        </div>
+                    </>
+                )}
+                <div className={`menubar ${open ? "active" : ""}`}>
+                    {currentUser ? (
+                        <a href="/user" className="profile">
+                            Profile
+                        </a>
+                    ) : (
+                        <>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Sign Up</a>
+                        </>
+                    )}
+                    <a href="/">Home</a>
+                    <a href="/">About</a>
+                    <a href="/">Contacts</a>
+                    <a href="/">Agents</a>
+                </div>
+            </div>
+        </nav>
+    );
+}
+
+export default Navbar;

@@ -1,0 +1,124 @@
+.loadingstyle {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+    gap: 20px;
+
+    .loading-card {
+        display: flex;
+        height: 110px;
+        gap: 10px;
+        background-color: #f9f9f9;
+        //padding: 20px;
+        //box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+        .loading-image {
+            flex: 1;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                #e0e0e0 25%,
+                #f6f6f6 50%,
+                #e0e0e0 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .loading-text {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 8px;
+
+            .loading-line {
+                height: 14px;
+                background: linear-gradient(
+                    90deg,
+                    #e0e0e0 25%,
+                    #f6f6f6 50%,
+                    #e0e0e0 75%
+                );
+                background-size: 200% 100%;
+                border-radius: 4px;
+                animation: shimmer 1.5s infinite;
+
+                &.title {
+                    width: 70%;
+                    height: 16px;
+                }
+                &.address {
+                    width: 50%;
+                }
+                &.price {
+                    width: 30%;
+                    height: 14px;
+                }
+            }
+
+            .loading-bottom {
+                display: flex;
+                justify-content: space-between;
+                margin-top: auto;
+                gap: 15px;
+
+                .features {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 48%;
+                    height: 50px;
+                    background: linear-gradient(
+                        90deg,
+                        #e0e0e0 25%,
+                        #f6f6f6 50%,
+                        #e0e0e0 75%
+                    );
+                    background-size: 200% 100%;
+                    border-radius: 8px;
+                    animation: shimmer 1.5s infinite;
+                }
+
+                .icons {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 48%;
+                    height: 50px;
+                    background: linear-gradient(
+                        90deg,
+                        #e0e0e0 25%,
+                        #f6f6f6 50%,
+                        #e0e0e0 75%
+                    );
+                    background-size: 200% 100%;
+                    border-radius: 8px;
+                    animation: shimmer 1.5s infinite;
+                }
+            }
+        }
+    }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Fade-in effect for smoother loading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

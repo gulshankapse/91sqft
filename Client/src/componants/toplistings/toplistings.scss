@@ -1,0 +1,91 @@
+.toplist {
+    height: 300px;
+    width: 200px;
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        overflow: hidden; // Ensures image corners are rounded
+        gap: 0;
+
+        .bg {
+            flex: 3;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+
+            .head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                span {
+                    margin: 0;
+                    font-size: 10px;
+                    color: #333;
+                }
+
+                .rating {
+                    color: gold; // Color for the stars
+                    font-size: 10px; // Adjust star size
+                }
+            }
+
+            .address {
+                display: flex;
+                align-items: center;
+                color: #777;
+                font-size: 10px;
+
+                span {
+                    margin-left: 5px; // Space for your icon
+                }
+            }
+
+            .bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: white;
+
+                .price {
+                    font-size: 10px;
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                .btn {
+                    background-color: #15131f; // A purple color
+                    color: white;
+                    border: none;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 1em;
+                    font-weight: 500;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: #191625; // Darker purple on hover
+                    }
+                }
+            }
+        }
+    }
+}

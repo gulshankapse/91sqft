@@ -1,0 +1,91 @@
+@import "../../responsive.scss";
+
+.chat-loading {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    background-color: white;
+    @include sm {
+        margin-left: 0px;
+    }
+    h1 {
+        height: 40px;
+        font-size: 22px;
+        font-weight: 350;
+    }
+    .loading-message {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        gap: 10px;
+        margin-bottom: 18px;
+        background: whitesmoke;
+        animation: fadeIn 0.5s ease-in-out;
+
+        .loading-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 15px;
+            background: linear-gradient(
+                90deg,
+                #e0e0e0 25%,
+                #f6f6f6 50%,
+                #e0e0e0 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+
+            .loading-line {
+                height: 14px;
+                background: linear-gradient(
+                    90deg,
+                    #e0e0e0 25%,
+                    #f6f6f6 50%,
+                    #e0e0e0 75%
+                );
+                background-size: 200% 100%;
+                border-radius: 4px;
+                animation: shimmer 1.5s infinite;
+
+                &.name {
+                    width: 40%;
+                    height: 16px;
+                }
+
+                &.message {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
