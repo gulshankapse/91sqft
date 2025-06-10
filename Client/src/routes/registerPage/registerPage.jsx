@@ -24,7 +24,7 @@ function RegisterPage() {
 
         try {
             const res = await axios.post(
-                `${API_URL}   /register`,
+                `${API_URL}/register`,
                 { username, email, password },
                 { withCredentials: true },
             );
