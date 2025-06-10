@@ -24,7 +24,11 @@ function App() {
         createRoutesFromElements(
             <>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<HomePage />} />
+                    <Route
+                        index
+                        element={<HomePage />}
+                        loader={listPageLoader}
+                    />
                     <Route
                         path="list"
                         element={<ListPage />}

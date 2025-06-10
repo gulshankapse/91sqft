@@ -16,24 +16,23 @@ nav {
         height: 35px;
     }
 
-    a {
-        transition: all 0.4s ease;
-
-        @include sm {
-            display: none;
-        }
-
-        &:hover {
-            scale: 1.02;
-        }
-    }
-
     .left {
         flex: 3;
         display: flex;
         align-items: center;
         gap: 40px;
 
+        a {
+            transition: all 0.4s ease;
+
+            @include sm {
+                display: none;
+            }
+
+            &:hover {
+                scale: 1.02;
+            }
+        }
         .logo {
             font-weight: bold;
             font-size: 20px;
@@ -69,6 +68,15 @@ nav {
         @include sm {
             gap: 15px;
         }
+
+        a {
+            transition: all 0.4s ease;
+
+            &:hover {
+                scale: 1.02;
+            }
+        }
+
         .user {
             display: flex;
             align-items: center;

@@ -1,13 +1,12 @@
-import axios from "axios";
 import "./profileUpdatePage.scss";
+import axios from "axios";
 import { useContext, useState } from "react";
 import { authContext } from "../../context/authContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UploadWidget from "../../componants/uploadwidget/uploadwidget.jsx";
-import Profile from "../../componants/profile/profile.jsx";
-import ProfileBar from "../../componants/profilebar/profilebar.jsx";
 
 function ProfileUpdatePage() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const nevigate = useNavigate();
     const [error, setError] = useState("");
     const { currentUser, updateUser } = useContext(authContext);
@@ -20,7 +19,7 @@ function ProfileUpdatePage() {
 
         try {
             const res = await axios.put(
-                `http://localhost:8800/users/${currentUser.id}`,
+                `${API_URL}/users/${currentUser.id}`,
                 { username, email, password, profilePic: profilePic[0] },
                 { withCredentials: true },
             );
@@ -31,6 +30,19 @@ function ProfileUpdatePage() {
         } catch (err) {
             console.log(err);
             setError(err.response.data.message);
+        }
+    };
+
+    const handleLogout = async () => {
+        try {
+            await axios.post(
+                `${API_URL}/logout`,
+                {},
+                { withCredentials: true },
+            );
+            updateUser(null);
+        } catch (err) {
+            console.error(err);
         }
     };
 
@@ -46,28 +58,28 @@ function ProfileUpdatePage() {
                             alt="Profile"
                             className="avatar"
                         />
-                        <div className="wrapper">
-                            {/* <span className="text">
-                                Username<b>{currentUser?.username}</b>
-                            </span>
-                            <span className="text">
-                                E-mail<b>{currentUser?.email}</b>
-                            </span>
-                            <span className="text">
-                                Joined<b>{currentUser?.createdAt}</b>
-                            </span>
-                            <div className="buttons">
-                                <div className="button">
-                                    <span>Logout</span>
-                                    <Link onClick={handleLogout}>
-                                        <img
-                                            src="/logout.png"
-                                            alt=""
-                                            className="icon"
-                                        />
-                                    </Link>
-                                </div>
-                                <div className="button">
+
+                        <span className="text">
+                            Username<b>{currentUser?.username}</b>
+                        </span>
+                        <span className="text">
+                            E-mail<b>{currentUser?.email}</b>
+                        </span>
+                        <span className="text">
+                            Joined<b>{currentUser?.createdAt}</b>
+                        </span>
+                        <div className="buttons">
+                            <div className="button">
+                                <span>Logout</span>
+                                <Link onClick={handleLogout}>
+                                    <img
+                                        src="/logout.png"
+                                        alt=""
+                                        className="icon"
+                                    />
+                                </Link>
+                            </div>
+                            {/* <div className="button">
                                     <span>Update</span>
                                     <Link to="/user/update">
                                         <img
@@ -76,7 +88,6 @@ function ProfileUpdatePage() {
                                             className="icon"
                                         />
                                     </Link>
-                                </div>
                                 </div> */}
                         </div>
                     </div>

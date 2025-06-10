@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 
 function RegisterPage() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +24,7 @@ function RegisterPage() {
 
         try {
             const res = await axios.post(
-                "http://localhost:8800/register",
+                `${API_URL}   /register`,
                 { username, email, password },
                 { withCredentials: true },
             );

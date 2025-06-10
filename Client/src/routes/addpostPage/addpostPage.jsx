@@ -7,6 +7,7 @@ import "react-quill/dist/quill.snow.css";
 import UploadWidget from "../../componants/uploadwidget/uploadwidget.jsx";
 
 function AddpostPage() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [value, setValue] = useState("");
     const [error, setError] = useState("");
     const [images, setImages] = useState([]);
@@ -19,7 +20,7 @@ function AddpostPage() {
 
         try {
             const res = await axios.post(
-                "http://localhost:8800/posts",
+                `${API_URL}/posts`,
                 {
                     postData: {
                         title: inputs.title,

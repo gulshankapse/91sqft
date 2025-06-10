@@ -15,20 +15,22 @@ import { addUser, getUser, removeUser } from "./socket.js";
 dotenv.config();
 
 const app = express();
-const server = createServer(app); // Create HTTP server
+const server = createServer(app);
+
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: process.env.CLIENT_URL,
         credentials: true,
     },
 });
 
 app.use(
     cors({
-        origin: "http://localhost:5173", // Temporary hardcode to debug
+        origin: process.env.CLIENT_URL,
         credentials: true,
     }),
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -58,6 +60,7 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(8800, () => {
-    console.log("Server is Running on Port 8800");
+const PORT = process.env.PORT || 8800;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

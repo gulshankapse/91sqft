@@ -4,11 +4,12 @@ import { authContext } from "./authContext";
 export const SocketContext = createContext();
 
 export const SocketContextProvider = ({ children }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [socket, setSocket] = useState(null);
     const { currentUser } = useContext(authContext);
 
     useEffect(() => {
-        setSocket(io("http://localhost:8800"));
+        setSocket(io(`${API_URL}`));
     }, []);
 
     // useEffect(()=>{

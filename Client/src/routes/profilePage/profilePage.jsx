@@ -1,12 +1,8 @@
-import { Await, Link, useLoaderData } from "react-router-dom";
-import List from "../../componants/list/list";
 import "./profilePage.scss";
-import { Suspense, useContext, useEffect, useState } from "react";
+import { Await, Link, useLoaderData } from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
 import LoadingList from "../../componants/loadinglist/loadinglist.jsx";
 import Chat from "../../componants/chat/chat.jsx";
-import Profile from "../../componants/profile/profile.jsx";
-import { authContext } from "../../context/authContext.jsx";
-import ProfileBar from "../../componants/profilebar/profilebar.jsx";
 import LoadingChat from "../../componants/loadingchat/loadingchat.jsx";
 import Card from "../../componants/card/card.jsx";
 

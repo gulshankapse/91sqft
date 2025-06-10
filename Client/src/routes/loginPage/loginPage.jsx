@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { authContext } from "../../context/authContext";
 
 function LoginPage() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +23,7 @@ function LoginPage() {
 
         try {
             const res = await axios.post(
-                "http://localhost:8800/login",
+                `${API_URL}/login`,
                 { username, password },
                 { withCredentials: true },
             );

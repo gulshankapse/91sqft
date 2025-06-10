@@ -1,9 +1,15 @@
+@import "../../responsive.scss";
+
 .toplist {
     height: 300px;
     width: 200px;
     display: flex;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
+    @include sm {
+        height: 210px;
+        width: 140px;
+    }
     .card {
         display: flex;
         flex-direction: column;
@@ -33,12 +39,17 @@
             .head {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-start;
 
                 span {
                     margin: 0;
-                    font-size: 10px;
-                    color: #333;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #202020;
+
+                    @include sm {
+                        font-size: 12px;
+                    }
                 }
 
                 .rating {
@@ -50,9 +61,16 @@
             .address {
                 display: flex;
                 align-items: center;
-                color: #777;
+                color: #888;
                 font-size: 10px;
 
+                @include sm {
+                    font-size: 9px;
+                }
+                img {
+                    width: 8px;
+                    height: 8px;
+                }
                 span {
                     margin-left: 5px; // Space for your icon
                 }
@@ -65,22 +83,29 @@
                 background-color: white;
 
                 .price {
-                    font-size: 10px;
+                    font-size: 18px;
                     font-weight: bold;
-                    color: #333;
+                    color: #ff8c44;
+
+                    @include sm {
+                        font-size: 12px;
+                    }
                 }
 
                 .btn {
-                    background-color: #15131f; // A purple color
+                    //background-color: #15131f;
                     color: white;
                     border: none;
-                    padding: 5px 10px;
-                    border-radius: 5px;
+                    padding: 5px 15px;
                     cursor: pointer;
-                    font-size: 1em;
+                    font-size: 12px;
                     font-weight: 500;
-                    transition: background-color 0.3s ease;
+                    background-color: black;
 
+                    @include sm {
+                        font-size: 9px;
+                        padding: 3px 8px;
+                    }
                     &:hover {
                         background-color: #191625; // Darker purple on hover
                     }

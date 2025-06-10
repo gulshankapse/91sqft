@@ -1,7 +1,7 @@
 import "./navbar.scss";
 import { useContext, useState } from "react";
 import { authContext } from "../../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Navbar() {
@@ -24,13 +24,15 @@ function Navbar() {
             <div className="right">
                 {currentUser ? (
                     <>
-                        <div className="user">
-                            <img
-                                src={currentUser.profilePic || "/noDP.png"}
-                                alt="User Profile"
-                            />
-                            <span>{currentUser.username}</span>
-                        </div>
+                        <Link to="/user/update">
+                            <div className="user">
+                                <img
+                                    src={currentUser.profilePic || "/noDP.png"}
+                                    alt="User Profile"
+                                />
+                                <span>{currentUser.username}</span>
+                            </div>
+                        </Link>
                         <a href="/user" className="profile">
                             Profile
                         </a>

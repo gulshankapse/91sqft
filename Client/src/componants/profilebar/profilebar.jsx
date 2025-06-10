@@ -5,12 +5,13 @@ import { authContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
 
 function ProfileBar() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const { currentUser, updateUser } = useContext(authContext);
 
     const handleLogout = async () => {
         try {
             await axios.post(
-                "http://localhost:8800/logout",
+                `${API_URL}/logout`,
                 {},
                 { withCredentials: true },
             );

@@ -20,7 +20,6 @@ function UploadWidget({ uwConfig, setPublicId, setState }) {
                 script.addEventListener("load", () => setLoaded(true));
                 document.body.appendChild(script);
             } else {
-                // If already loaded, update the state
                 setLoaded(true);
             }
         }

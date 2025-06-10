@@ -12,6 +12,7 @@ function formatPrice(price) {
 }
 
 function DetailsPage() {
+    const API_URL = import.meta.env.VITE_API_URL;
     const postData = useLoaderData();
     const [post, setPost] = useState(postData);
     const { currentUser } = useContext(authContext);
@@ -20,7 +21,7 @@ function DetailsPage() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:8800/posts/${post.id}`, {
+            await axios.delete(`${API_URL}/${post.id}`, {
                 withCredentials: true,
             });
             navigate("/user");
@@ -32,7 +33,7 @@ function DetailsPage() {
     const addChat = async () => {
         try {
             const res = await axios.post(
-                "http://localhost:8800/chats",
+                `${API_URL}/chats`,
                 { receiverId: post.user.id },
                 { withCredentials: true },
             );
@@ -52,7 +53,7 @@ function DetailsPage() {
 
         try {
             await axios.post(
-                "http://localhost:8800/users/save",
+                `${API_URL}/users/save`,
                 { postId: post.id },
                 { withCredentials: true },
             );
@@ -70,7 +71,7 @@ function DetailsPage() {
 
         try {
             const res = await axios.put(
-                `http://localhost:8800/posts/${post.id}`,
+                `${API_URL}/posts/${post.id}`,
                 { title, price: Number(price) },
                 {
                     withCredentials: true,

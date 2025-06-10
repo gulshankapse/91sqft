@@ -19,6 +19,7 @@
     "react-modal": "^3.16.1",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.27.0",
+    "react-window": "^1.8.11",
     "sass": "^1.80.4",
     "scrollreveal": "^4.0.9",
     "socket.io-client": "^4.8.1",

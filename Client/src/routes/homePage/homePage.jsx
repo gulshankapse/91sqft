@@ -3,10 +3,23 @@ import { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 import SearchBar from "../../componants/searchbar/searchbar";
 import TopListings from "../../componants/toplistings/toplistings";
+import { Await, useLoaderData } from "react-router-dom";
+import { Suspense } from "react";
+import { FixedSizeList as List } from "react-window";
 
 function HomePage() {
+    const data = useLoaderData();
+
+    let itemSize = 248;
+    let listHeight = 340;
+
+    if (window.innerWidth <= 480) {
+        itemSize = 160;
+        listHeight = 250;
+    }
+
     useEffect(() => {
-        ScrollReveal().reveal(".head", {
+        ScrollReveal().reveal(".heading", {
             origin: "left",
             distance: "60px",
             duration: 1000,
@@ -28,21 +41,13 @@ function HomePage() {
             duration: 1000,
             delay: 500,
         });
-
-        // ScrollReveal().reveal(".boxes .box", {
-        //     interval: 200,
-        //     origin: "bottom",
-        //     distance: "40px",
-        //     duration: 1000,
-        //     delay: 600,
-        // });
     }, []);
 
     return (
         <div className="homePage">
             <div className="top">
                 <div className="wrapper">
-                    <div className="head">
+                    <div className="heading">
                         <h1 className="tagline">
                             Discover your <br />
                             dream space <br />
@@ -61,18 +66,74 @@ function HomePage() {
                 </div>
             </div>
             <div className="mid">
-                <div className="heading">
+                <div className="head">
                     <span>Our Popular</span>
                     <a href="/list">explore all</a>
                 </div>
-                <div className="listings">
-                    <TopListings /> <TopListings /> <TopListings />
-                    <TopListings />
-                </div>
+                <Suspense
+                    fallback={
+                        <p
+                            style={{
+                                fontSize: "18px",
+                                fontWeight: "500",
+                                textAlign: "center",
+                                padding: "20px",
+                                color: "#444",
+                            }}
+                        >
+                            Finding the best property for you...
+                        </p>
+                    }
+                >
+                    <Await
+                        resolve={data.postResponse}
+                        errorElement={<p>Error loading posts!</p>}
+                    >
+                        {(postResponse) => (
+                            <div className="listings">
+                                <List
+                                    //ref={listRef}
+                                    height={listHeight}
+                                    itemCount={4}
+                                    itemSize={itemSize}
+                                    width={1024}
+                                    layout="horizontal"
+                                    style={{ overflow: "hidden" }}
+                                >
+                                    {({ index, style }) => {
+                                        const post = postResponse.data[index];
+                                        return (
+                                            <div
+                                                style={{
+                                                    ...style,
+                                                    padding:
+                                                        "20px 0px 20px 20px", // 14px total gap between cards
+                                                }}
+                                                key={post.id}
+                                            >
+                                                <TopListings post={post} />
+                                            </div>
+                                        );
+                                    }}
+                                </List>
+                                <div className="all"></div>
+                            </div>
+                        )}
+                    </Await>
+                </Suspense>
             </div>
             <div className="btm">
                 <div className="left"></div>
                 <div className="right">
+                    <span>About Us</span>
+                    <p>
+                        At 91sqft, we connect people with their dream properties
+                        effortlessly. Our platform offers a curated selection of
+                        homes, plots, and commercial spaces. With a focus on
+                        trust and transparency, we simplify real estate for
+                        everyone. Begin your journey to the perfect space—where
+                        comfort meets convenience.
+                    </p>
                     <div className="boxes">
                         <div className="box">
                             <h1>16+</h1>
@@ -94,18 +155,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-/* <div className="boxes">
-                <div className="box">
-                  <h1>16+</h1>
-                  <h2>Years of Experience</h2>
-                </div>
-                <div className="box">
-                  <h1>200</h1>
-                  <h2>Award Gained</h2>
-                </div>
-                <div className="box">
-                  <h1>1200+</h1>
-                  <h2>Property Ready</h2>
-                </div>
-              </div> */

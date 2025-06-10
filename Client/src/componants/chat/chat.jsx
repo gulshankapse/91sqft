@@ -6,6 +6,7 @@ import { SocketContext } from "../../context/socketContext";
 import { format } from "timeago.js";
 
 function Chat({ chats, setChats }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [chat, setChat] = useState(null);
     const { currentUser } = useContext(authContext);
     const { socket } = useContext(SocketContext);
@@ -21,11 +22,11 @@ function Chat({ chats, setChats }) {
         const read = async (chatId) => {
             try {
                 await axios.put(
-                    `http://localhost:8800/chats/read/${chatId}`,
+                    `${API_URL}/chats/read/${chatId}`,
                     {},
                     { withCredentials: true },
                 );
-                // Update local state to mark as read
+
                 setChats((prev) =>
                     prev.map((c) =>
                         c.id === chatId
@@ -83,8 +84,7 @@ function Chat({ chats, setChats }) {
                 ),
             );
 
-            // Then fetch chat data
-            const res = await axios.get(`http://localhost:8800/chats/${id}`, {
+            const res = await axios.get(`${API_URL}/chats/${id}`, {
                 withCredentials: true,
             });
 
@@ -101,7 +101,7 @@ function Chat({ chats, setChats }) {
     const handleDeleteChat = async (chatId, e) => {
         e.stopPropagation();
         try {
-            await axios.delete(`http://localhost:8800/chats/delete/${chatId}`, {
+            await axios.delete(`${API_URL}/chats/delete/${chatId}`, {
                 withCredentials: true,
             });
 
@@ -119,7 +119,7 @@ function Chat({ chats, setChats }) {
 
         try {
             const res = await axios.post(
-                `http://localhost:8800/messages/${chat.id}`,
+                `${API_URL}/messages/${chat.id}`,
                 { text },
                 { withCredentials: true },
             );
