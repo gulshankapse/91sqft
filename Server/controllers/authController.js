@@ -58,7 +58,6 @@ export const login = async (req, res) => {
             secure: true,
             sameSite: "None",
             maxAge: age,
-            domain: "91sqft-five.vercel.app",
         })
             .status(200)
             .json(userInfo);
