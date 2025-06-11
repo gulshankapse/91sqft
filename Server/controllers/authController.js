@@ -55,9 +55,10 @@ export const login = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true, // ✅ must be true in production
-            sameSite: "None", // ✅ allows cross-site cookies
+            secure: true,
+            sameSite: "None",
             maxAge: age,
+            domain: "91sqft-five.vercel.app/",
         })
             .status(200)
             .json(userInfo);
