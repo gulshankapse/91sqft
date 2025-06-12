@@ -1,13 +1,10 @@
 import "./navbar.scss";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { authContext } from "../../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-    const [open, setOpen] = useState(false); // For the responsive menu
-    const navigate = useNavigate();
-    const { currentUser, updateUser } = useContext(authContext);
+    const { currentUser } = useContext(authContext);
 
     return (
         <nav>
@@ -34,7 +31,7 @@ function Navbar() {
                             </div>
                         </Link>
                         <a href="/user" className="profile">
-                            Profile
+                            Dashboard
                         </a>
                     </>
                 ) : (

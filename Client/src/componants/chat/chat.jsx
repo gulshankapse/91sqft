@@ -179,7 +179,7 @@ function Chat({ chats, setChats }) {
                             onClick={(e) => handleDeleteChat(c.id, e)}
                             className="delete"
                         >
-                            <img src="clear.png" alt="" />
+                            <img src="trash.png" alt="" />
                         </div>
                     </div>
                 ))}

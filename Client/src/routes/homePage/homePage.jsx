@@ -67,8 +67,13 @@ function HomePage() {
             </div>
             <div className="mid">
                 <div className="head">
-                    <span>Our Popular</span>
-                    <a href="/list">explore all</a>
+                    <span>Top Listings</span>
+                    <div>
+                        explore all
+                        <a href="/list">
+                            <img src="uploadB.png" alt="" />
+                        </a>
+                    </div>
                 </div>
                 <Suspense
                     fallback={
@@ -126,6 +131,11 @@ function HomePage() {
                 <div className="left"></div>
                 <div className="right">
                     <span>About Us</span>
+                    <h2>
+                        India’s Trusted Property Discovery Platform
+                        <br />
+                        Buy, Sell & Explore with Confidence
+                    </h2>
                     <p>
                         At 91sqft, we connect people with their dream properties
                         effortlessly. Our platform offers a curated selection of

@@ -9,11 +9,17 @@
     .imagecontainer {
         flex: 2;
         height: 110px;
+        overflow: hidden;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
     .textcontainer {
