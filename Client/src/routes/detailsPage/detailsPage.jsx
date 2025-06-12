@@ -107,6 +107,7 @@ function DetailsPage() {
                             <div className="owner">
                                 <div className="left">
                                     <img
+                                        className="dp"
                                         src={
                                             post.user.profilePic || "/noDP.png"
                                         }
@@ -163,7 +164,7 @@ function DetailsPage() {
                                                 className="msg"
                                             >
                                                 <img src="/chat.png" alt="" />
-                                                <span>Send a Message</span>
+                                                <span>Message</span>
                                             </button>
                                         </>
                                     )}
@@ -174,25 +175,29 @@ function DetailsPage() {
                 </div>
                 <div className="features">
                     <div className="buttons">
-                        <button>
-                            <Link to="/add">
+                        <div>
+                            Post Property
+                            <a href="/add">
                                 <img src="/add.png" alt="" />
-                            </Link>
-                            <p> Add Property</p>
-                        </button>
+                            </a>
+                        </div>
                         {currentUser.id === post.user.id ? (
-                            <button onClick={handleDelete}>
-                                <img src="/clear.png" alt="" />
-                                <p>Delete</p>
-                            </button>
+                            <div>
+                                Delete
+                                <a onClick={handleDelete}>
+                                    <img src="/trash.png" alt="" />
+                                </a>
+                            </div>
                         ) : (
-                            <button onClick={handleSave}>
-                                <img
-                                    src={saved ? "/saved.png" : "/save.png"}
-                                    alt=""
-                                />
+                            <div>
                                 {saved ? "Saved" : "Save"}
-                            </button>
+                                <a onClick={handleSave}>
+                                    <img
+                                        src={saved ? "/saved.png" : "/save.png"}
+                                        alt=""
+                                    />
+                                </a>
+                            </div>
                         )}
                     </div>
                     <div className="wrapper">

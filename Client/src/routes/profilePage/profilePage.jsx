@@ -1,5 +1,5 @@
 import "./profilePage.scss";
-import { Await, Link, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import LoadingList from "../../componants/loadinglist/loadinglist.jsx";
 import Chat from "../../componants/chat/chat.jsx";
@@ -85,14 +85,14 @@ function ProfilePage() {
                             </button>
                         </div>
                         <div className="createContainer">
-                            <span className="createText">Add</span>
-                            <Link to="/add">
+                            Post Property
+                            <a href="/add">
                                 <img
                                     src="/add.png"
                                     alt="Create"
                                     className="createImage"
                                 />
-                            </Link>
+                            </a>
                         </div>
                     </div>
                     <div className="wrapper">

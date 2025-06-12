@@ -7,8 +7,8 @@
     overflow: hidden;
 
     .container {
-        display: flex;
         flex: 1;
+        display: flex;
         overflow: hidden;
         gap: 20px;
 
@@ -124,7 +124,7 @@
                                 font-size: 14px;
                             }
 
-                            img {
+                            .dp {
                                 height: 60px;
                                 width: 60px;
                                 border-radius: 50%;
@@ -136,8 +136,8 @@
                                 flex-direction: row;
 
                                 img {
-                                    height: 24px;
-                                    width: 24px;
+                                    height: 20px;
+                                    width: 20px;
                                 }
                             }
                         }
@@ -250,30 +250,30 @@
                 display: flex;
                 justify-content: space-between;
 
-                button {
+                div {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    height: 40px;
-                    width: 160px;
-                    padding: 5px;
-                    gap: 5px;
-                    font-size: 15px;
-                    font-weight: 550;
-                    color: #666;
-                    background-color: white;
-                    border-radius: 3px;
-                    border: none;
-                    cursor: pointer;
+                    gap: 10px;
+                    font-size: 14px;
+                    color: #333;
 
-                    img {
-                        width: 20px;
-                        height: 20px;
+                    @include sm {
+                        font-size: 12px;
+                        gap: 6px;
                     }
+                    a {
+                        display: flex;
+                        align-items: center;
 
-                    p {
-                        font-size: 15px;
-                        font-weight: 550;
+                        img {
+                            width: 16px;
+                            height: 16px;
+
+                            @include sm {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
                     }
                 }
             }
@@ -287,7 +287,7 @@
                 padding: 20px 30px;
                 background-color: whitesmoke;
                 box-sizing: border-box;
-                margin-bottom: 50px;
+                padding-bottom: 120px;
 
                 .list {
                     display: flex;
