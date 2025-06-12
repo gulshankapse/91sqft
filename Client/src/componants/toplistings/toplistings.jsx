@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
 import "./toplistings.scss";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../../context/authContext";
+import { useContext } from "react";
 
 function TopListings({ post }) {
+    const { currentUser } = useContext(authContext);
+    const navigate = useNavigate();
+
     function formatPrice(price) {
         return price.toLocaleString("en-IN");
     }
+
+    const showDetails = () => {
+        if (!currentUser) navigate("/login");
+        else navigate(`/${post.id}`);
+    };
+
     return (
         <div className="toplist">
             <div className="card">
@@ -26,9 +37,10 @@ function TopListings({ post }) {
                         <span className="price">
                             ₹ {formatPrice(post.price)}
                         </span>
-                        <Link to={`/${post.id}`}>
-                            <button className="btn">Details</button>
-                        </Link>
+
+                        <button className="btn" onClick={showDetails}>
+                            Details
+                        </button>
                     </div>
                 </div>
             </div>

@@ -36,7 +36,9 @@ function Navbar() {
                     </>
                 ) : (
                     <>
-                        <a href="/login">Sign In</a>
+                        <a className="signin" href="/login">
+                            Sign In
+                        </a>
                         <a href="/register" className="signup">
                             Sign up
                         </a>

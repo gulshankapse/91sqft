@@ -2,12 +2,11 @@ import "./profileUpdatePage.scss";
 import axios from "axios";
 import { useContext, useState } from "react";
 import { authContext } from "../../context/authContext.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UploadWidget from "../../componants/uploadwidget/uploadwidget.jsx";
 
 function ProfileUpdatePage() {
     const API_URL = import.meta.env.VITE_API_URL;
-    const nevigate = useNavigate();
     const [error, setError] = useState("");
     const { currentUser, updateUser } = useContext(authContext);
     const [profilePic, setProfilePic] = useState([]);
