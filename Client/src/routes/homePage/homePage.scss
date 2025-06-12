@@ -43,6 +43,7 @@
             }
             p {
                 font-size: 15px;
+                font-weight: 350;
             }
             @include sm {
                 color: white;
@@ -159,6 +160,9 @@
                     font-size: 30px;
                 }
             }
+            p {
+                font-weight: 350;
+            }
             .boxes {
                 width: 100%;
                 display: flex;
@@ -175,10 +179,18 @@
 
                     h1 {
                         font-size: 28px;
+
+                        @include sm {
+                            font-size: 20px;
+                        }
                     }
                     h2 {
                         font-size: 15px;
                         font-weight: 300;
+
+                        @include sm {
+                            font-size: 13px;
+                        }
                     }
                 }
             }

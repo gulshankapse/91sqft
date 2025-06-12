@@ -141,7 +141,7 @@ function HomePage() {
                         effortlessly. Our platform offers a curated selection of
                         homes, plots, and commercial spaces. With a focus on
                         trust and transparency, we simplify real estate for
-                        everyone. Begin your journey to the perfect space—where
+                        everyone. Begin your journey to the perfect space where
                         comfort meets convenience.
                     </p>
                     <div className="boxes">
