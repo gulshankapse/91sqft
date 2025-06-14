@@ -22,6 +22,16 @@
         gap: 18px;
         overflow-y: scroll;
 
+        .noChat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            font-size: 13px;
+            color: #777;
+            font-style: italic;
+        }
+
         .message {
             height: 50px;
             width: 100%;
@@ -112,6 +122,16 @@
             gap: 10px;
             overflow-y: auto;
             //background-color: #f9f9f9;;
+
+            .noMessage {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100px;
+                font-size: 12px;
+                color: #777;
+                font-style: italic;
+            }
 
             .chatmsg {
                 width: 50%;

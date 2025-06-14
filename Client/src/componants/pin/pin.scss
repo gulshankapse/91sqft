@@ -12,5 +12,13 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        div {
+            color: black;
+        }
+        b {
+            font-size: 18px;
+            color: #ff8c44;
+        }
     }
 }

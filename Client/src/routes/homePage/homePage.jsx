@@ -77,15 +77,7 @@ function HomePage() {
                 </div>
                 <Suspense
                     fallback={
-                        <p
-                            style={{
-                                fontSize: "18px",
-                                fontWeight: "500",
-                                textAlign: "center",
-                                padding: "20px",
-                                color: "#444",
-                            }}
-                        >
+                        <p className="find">
                             Finding the best property for you...
                         </p>
                     }

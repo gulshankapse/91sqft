@@ -39,7 +39,10 @@
                 padding: 15px;
                 background-color: whitesmoke;
                 box-sizing: border-box;
-                margin-bottom: 50px;
+
+                @include sm {
+                    margin-bottom: 50px;
+                }
 
                 .list {
                     display: flex;

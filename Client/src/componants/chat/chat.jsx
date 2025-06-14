@@ -153,36 +153,44 @@ function Chat({ chats, setChats }) {
         <div className="chat">
             <h1>Messages</h1>
             <div className="messages">
-                {chats?.map((c) => (
-                    <div
-                        className="message"
-                        key={c.id}
-                        style={{
-                            backgroundColor: c.seenBy.includes(currentUser.id)
-                                ? "white"
-                                : "#fecd5170",
-                            // border: c.seenBy.includes(currentUser.id)
-                            //     ? "1px solid #bbb"
-                            //     : "none",
-                        }}
-                        onClick={() => handleOpenChat(c.id, c.receiver)}
-                    >
-                        <div className="info">
-                            <img
-                                src={c.receiver.profilePic || "/noDP.png"}
-                                alt=""
-                            />
-                            <span>{c.receiver.username}</span>
-                            <p>{c.lastMessage || "New chat"}</p>
-                        </div>
+                {chats && chats.length > 0 ? (
+                    chats.map((c) => (
                         <div
-                            onClick={(e) => handleDeleteChat(c.id, e)}
-                            className="delete"
+                            className="message"
+                            key={c.id}
+                            style={{
+                                backgroundColor: c.seenBy.includes(
+                                    currentUser.id,
+                                )
+                                    ? "white"
+                                    : "#fecd5170",
+                                // border: c.seenBy.includes(currentUser.id)
+                                //     ? "1px solid #bbb"
+                                //     : "none",
+                            }}
+                            onClick={() => handleOpenChat(c.id, c.receiver)}
                         >
-                            <img src="trash.png" alt="" />
+                            <div className="info">
+                                <img
+                                    src={c.receiver.profilePic || "/noDP.png"}
+                                    alt=""
+                                />
+                                <span>{c.receiver.username}</span>
+                                <p>{c.lastMessage || "New chat"}</p>
+                            </div>
+                            <div
+                                onClick={(e) => handleDeleteChat(c.id, e)}
+                                className="delete"
+                            >
+                                <img src="trash.png" alt="" />
+                            </div>
                         </div>
+                    ))
+                ) : (
+                    <div className="noChat">
+                        <span>No conversations yet.</span>
                     </div>
-                ))}
+                )}
             </div>
 
             {chat && (
@@ -201,25 +209,31 @@ function Chat({ chats, setChats }) {
                     </div>
 
                     <div className="center">
-                        {chat?.message?.map((msg) => (
-                            <div
-                                className="chatmsg"
-                                key={msg.id}
-                                style={{
-                                    alignSelf:
-                                        msg.userId === currentUser.id
-                                            ? "flex-end"
-                                            : "flex-start",
-                                    textAlign:
-                                        msg.userId === currentUser.id
-                                            ? "right"
-                                            : "left",
-                                }}
-                            >
-                                <p>{msg.text}</p>
-                                <span>{format(msg.createdAt)}</span>
+                        {chat.message.length > 0 ? (
+                            chat.message.map((msg) => (
+                                <div
+                                    className="chatmsg"
+                                    key={msg.id}
+                                    style={{
+                                        alignSelf:
+                                            msg.userId === currentUser.id
+                                                ? "flex-end"
+                                                : "flex-start",
+                                        textAlign:
+                                            msg.userId === currentUser.id
+                                                ? "right"
+                                                : "left",
+                                    }}
+                                >
+                                    <p>{msg.text}</p>
+                                    <span>{format(msg.createdAt)}</span>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="noMessage">
+                                <span>No messages yet.</span>
                             </div>
-                        ))}
+                        )}
                         <div ref={messageEndRef}></div>
                     </div>
 

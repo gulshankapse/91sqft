@@ -1,21 +1,28 @@
 import "./card.scss";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { authContext } from "../../context/authContext";
+import { Link, useNavigate } from "react-router-dom";
 
 function formatPrice(price) {
     return price.toLocaleString("en-IN");
 }
 
 function Card({ item }) {
+    const { currentUser } = useContext(authContext);
+    const navigate = useNavigate();
+
+    const showDetails = () => {
+        if (!currentUser) navigate("/login");
+        else navigate(`/${item.id}`);
+    };
     return (
-        <div className="card">
-            <Link to={`/${item.id}`} className="imagecontainer">
+        <div onClick={() => showDetails()} className="card">
+            <div className="imagecontainer">
                 <img src={item.images[0]} alt="img" />
-            </Link>
+            </div>
             <div className="textcontainer">
                 <p className="price">₹ {formatPrice(item.price)}</p>
-                <h2 className="title">
-                    <Link to={`/${item.id}`}>{item.title}</Link>
-                </h2>
+                <h2 className="title">{item.title}</h2>
                 <p className="address">
                     <img src="/pin.png" alt="" />
                     <span>{item.address}</span>

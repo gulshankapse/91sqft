@@ -88,6 +88,7 @@ function DetailsPage() {
         <div className="detailsPage">
             <div className="container">
                 <div className="details">
+                    <div className="type">For {post.type}</div>
                     <div className="wrapper">
                         <div className="info">
                             <div className="top">
@@ -229,7 +230,7 @@ function DetailsPage() {
                             <div className="sizes">
                                 <div className="size">
                                     <img src="/maximize.png" alt="" />
-                                    <span>{post.postDetail.size}sqft</span>
+                                    <span>{post.postDetail.size} sqft</span>
                                 </div>
                                 <div className="size">
                                     <img src="/dbed.png" alt="" />
@@ -237,7 +238,7 @@ function DetailsPage() {
                                 </div>
                                 <div className="size">
                                     <img src="/bathtub.png" alt="" />
-                                    <span>{post.bathroom}Bathroom</span>
+                                    <span>{post.bathroom} Bathroom</span>
                                 </div>
                             </div>
                             <p className="title">Location</p>
