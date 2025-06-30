@@ -1,6 +1,6 @@
 import "./pin.scss";
 import { Marker, Popup } from "react-leaflet";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authContext } from "../../context/authContext";
 import { useContext } from "react";
 

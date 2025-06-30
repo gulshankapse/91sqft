@@ -1,7 +1,7 @@
 import "./card.scss";
 import { useContext } from "react";
 import { authContext } from "../../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function formatPrice(price) {
     return price.toLocaleString("en-IN");

@@ -57,7 +57,6 @@ function ProfileUpdatePage() {
                             alt="Profile"
                             className="avatar"
                         />
-
                         <span className="text">
                             Username<b>{currentUser?.username}</b>
                         </span>
@@ -65,14 +64,23 @@ function ProfileUpdatePage() {
                             E-mail<b>{currentUser?.email}</b>
                         </span>
                         <span className="text">
-                            Joined<b>{currentUser?.createdAt}</b>
+                            Joined{" "}
+                            <b>
+                                {new Date(
+                                    currentUser?.createdAt,
+                                ).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </b>
                         </span>
                         <div className="buttons">
                             <div className="button">
                                 <span>Logout</span>
                                 <Link onClick={handleLogout}>
                                     <img
-                                        src="/logout.png"
+                                        src="/power.png"
                                         alt=""
                                         className="icon"
                                     />

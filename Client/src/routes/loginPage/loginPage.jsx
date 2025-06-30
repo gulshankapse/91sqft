@@ -18,8 +18,8 @@ function LoginPage() {
 
         const formData = new FormData(e.target);
 
-        const username = formData.get("username");
-        const password = formData.get("password");
+        const username = formData.get("username").trim();
+        const password = formData.get("password").trim();
 
         try {
             const res = await axios.post(
@@ -59,8 +59,8 @@ function LoginPage() {
                             <input
                                 name="username"
                                 required
-                                minLength={5}
-                                maxLength={15}
+                                minLength={4}
+                                maxLength={10}
                                 type="text"
                                 placeholder="Username"
                             />

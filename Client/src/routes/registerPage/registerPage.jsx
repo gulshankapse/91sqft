@@ -16,9 +16,9 @@ function RegisterPage() {
 
         const formData = new FormData(e.target);
 
-        const username = formData.get("username");
-        const email = formData.get("email");
-        const password = formData.get("password");
+        const username = formData.get("username").trim();
+        const email = formData.get("email").trim();
+        const password = formData.get("password").trim();
 
         console.log(username, email, password);
 
@@ -59,6 +59,9 @@ function RegisterPage() {
                             <input
                                 name="username"
                                 type="text"
+                                required
+                                minLength={4}
+                                maxLength={10}
                                 placeholder="Username"
                             />
                         </div>
@@ -66,7 +69,8 @@ function RegisterPage() {
                             <img src="/email.png" alt="" />
                             <input
                                 name="email"
-                                type="text"
+                                type="email"
+                                required
                                 placeholder="Email"
                             />
                         </div>
@@ -75,6 +79,9 @@ function RegisterPage() {
                             <input
                                 name="password"
                                 type="password"
+                                required
+                                minLength={5}
+                                maxLength={20}
                                 placeholder="Password"
                             />
                         </div>

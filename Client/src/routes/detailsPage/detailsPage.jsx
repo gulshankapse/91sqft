@@ -2,7 +2,7 @@ import "./detailsPage.scss";
 import axios from "axios";
 import Slider from "../../componants/slider/slider";
 import Map from "../../componants/map/map.jsx";
-import { useLoaderData, useNavigate, Link } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { useContext, useState } from "react";
 import { authContext } from "../../context/authContext.jsx";

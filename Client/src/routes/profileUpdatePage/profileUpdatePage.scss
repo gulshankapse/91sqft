@@ -12,12 +12,10 @@
 
     .profileContainer {
         flex: 3;
-        background: #070707;
-
-        @include sm {
-            flex: none;
-            height: max-content;
-        }
+        // @include sm {
+        //     flex: none;
+        //     height: max-content;
+        // }
 
         .userProfile {
             height: 100%;
@@ -39,16 +37,20 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 overflow: visible;
+
+                @include sm {
+                    height: 30px;
+                }
             }
             .info {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
-                background-color: aqua;
+                justify-content: center;
 
                 .avatar {
-                    width: 100px;
-                    height: 100px;
+                    width: 130px;
+                    height: 130px;
                     position: absolute;
                     top: 160px;
                     left: 80px;
@@ -56,11 +58,19 @@
                     background-color: white;
                     border: 3px solid white;
                     border-radius: 50%;
+
+                    @include sm {
+                        width: 100px;
+                        height: 100px;
+                        top: 100px;
+                        left: 60px;
+                        transform: translateX(-15%);
+                    }
                 }
 
                 .text {
-                    padding: 0px 20px;
-                    color: #666;
+                    margin-top: 10px;
+                    color: #333;
 
                     b {
                         font-size: 16px;
@@ -71,8 +81,7 @@
                     display: flex;
                     gap: 30px;
                     height: 40px;
-                    padding: 0px 20px;
-                    margin-top: 30px;
+                    margin-top: 20px;
 
                     .button {
                         display: flex;
@@ -80,16 +89,15 @@
                         align-items: center;
 
                         span {
-                            font-size: 14px;
-                            color: #666;
+                            font-size: 18px;
+                            color: #333;
                             font-weight: bold;
                         }
 
                         .icon {
-                            width: 25px;
-                            height: 25px;
+                            width: 22px;
+                            height: 22px;
                             cursor: pointer;
-                            border-radius: 30%;
                             transition: transform 0.2s ease-in-out;
 
                             &:hover {
@@ -106,14 +114,13 @@
         flex: 2;
         display: flex;
         height: 100vh;
-        align-items: center;
         flex-direction: column;
         min-height: 0;
 
-        @include sm {
-            flex: none;
-            height: max-content;
-        }
+        // @include sm {
+        //     flex: none;
+        //     height: max-content;
+        // }
 
         .head {
             width: 100%;
@@ -178,7 +185,6 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            //background-color: #fece51;
 
             label {
                 font-size: 15px;
@@ -196,16 +202,15 @@
                 transition: 0.3s ease-in-out;
 
                 &:focus {
-                    border-color: #1a6e6e;
                     outline: none;
-                    box-shadow: 0px 0px 5px rgba(26, 110, 110, 0.4);
+                    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
                 }
             }
 
             button {
                 width: 100px;
                 padding: 12px;
-                background-color: #2a373f;
+                background-color: black;
                 color: white;
                 border: none;
                 border-radius: 3px;
@@ -214,7 +219,7 @@
                 transition: 0.3s ease-in-out;
 
                 &:hover {
-                    background-color: #145858;
+                    background-color: #333;
                 }
             }
 
