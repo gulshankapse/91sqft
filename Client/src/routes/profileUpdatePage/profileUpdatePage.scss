@@ -12,10 +12,6 @@
 
     .profileContainer {
         flex: 3;
-        // @include sm {
-        //     flex: none;
-        //     height: max-content;
-        // }
 
         .userProfile {
             height: 100%;
@@ -37,10 +33,6 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 overflow: visible;
-
-                @include sm {
-                    height: 30px;
-                }
             }
             .info {
                 flex: 2;
@@ -53,7 +45,7 @@
                     height: 130px;
                     position: absolute;
                     top: 160px;
-                    left: 80px;
+                    left: 60px;
                     transform: translateX(-15%);
                     background-color: white;
                     border: 3px solid white;
@@ -62,8 +54,8 @@
                     @include sm {
                         width: 100px;
                         height: 100px;
-                        top: 100px;
-                        left: 60px;
+                        top: 90px;
+                        left: 50px;
                         transform: translateX(-15%);
                     }
                 }
@@ -116,30 +108,30 @@
         height: 100vh;
         flex-direction: column;
         min-height: 0;
+        margin-left: 50px;
+        gap: 15px;
 
-        // @include sm {
-        //     flex: none;
-        //     height: max-content;
-        // }
+        @include sm {
+            margin-left: 0;
+        }
 
         .head {
             width: 100%;
             font-size: 20px;
             font-weight: bold;
             color: #666;
-            padding-left: 50px;
             margin-top: 40px;
         }
         .image {
             width: 100%;
             height: 150px;
             display: flex;
-            padding-left: 50px;
+            align-items: center;
+            justify-content: space-between;
 
             .pic {
                 display: flex;
                 flex-direction: column;
-                padding-top: 40px;
                 gap: 10px;
 
                 span {
@@ -151,40 +143,38 @@
                     height: 80px;
                     border-radius: 50%;
                     object-fit: cover;
-                    margin-bottom: 20px;
                     //box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
                 }
             }
             .upload {
                 width: 10px;
                 height: 10px;
-                padding-top: 80px;
-                padding-left: 100px;
+                margin-right: 100px;
+                // .custom-upload-widget {
+                //     background-color: #1a6e6e;
+                //     color: white;
+                //     padding: 12px 20px;
+                //     border-radius: 5px;
+                //     font-size: 14px;
+                //     cursor: pointer;
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: center;
+                //     transition: background-color 0.3s ease;
 
-                .custom-upload-widget {
-                    background-color: #1a6e6e;
-                    color: white;
-                    padding: 12px 20px;
-                    border-radius: 5px;
-                    font-size: 14px;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    transition: background-color 0.3s ease;
-
-                    &:hover {
-                        background-color: #145858;
-                    }
-                }
+                //     &:hover {
+                //         background-color: #145858;
+                //     }
+                // }
             }
         }
         form {
             width: 100%;
-            padding: 25px 50px;
+            padding: 25px 0px;
             display: flex;
             flex-direction: column;
             gap: 16px;
+            padding-bottom: 80px;
 
             label {
                 font-size: 15px;
