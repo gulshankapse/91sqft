@@ -201,15 +201,14 @@ function AddpostPage() {
                                 min={0}
                             />
                         </div>
-                        <button className="smBox">Update</button>
+                        <div className="smBox">
+                            <button>Post Property</button>
+                        </div>
                         {error && <span>error</span>}
                     </form>
                 </div>
             </div>
             <div className="sideContainer">
-                {images.map((image, index) => (
-                    <img src={image} key={index} alt="" />
-                ))}
                 <UploadWidget
                     uwConfig={{
                         cloudName: "gulshankapse",
@@ -218,8 +217,11 @@ function AddpostPage() {
                         folder: "Posts",
                     }}
                     setState={setImages}
-                    text="Upload"
+                    text="Add Image"
                 />
+                {images.map((image, index) => (
+                    <img src={image} key={index} alt="" />
+                ))}
             </div>
         </div>
     );

@@ -47,14 +47,13 @@
                     top: 160px;
                     left: 60px;
                     transform: translateX(-15%);
-                    background-color: white;
                     border: 3px solid white;
                     border-radius: 50%;
 
                     @include sm {
                         width: 100px;
                         height: 100px;
-                        top: 90px;
+                        top: 100px;
                         left: 50px;
                         transform: translateX(-15%);
                     }
