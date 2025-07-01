@@ -218,6 +218,7 @@ function AddpostPage() {
                         folder: "Posts",
                     }}
                     setState={setImages}
+                    text="Upload"
                 />
             </div>
         </div>

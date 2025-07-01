@@ -76,26 +76,10 @@ function ProfileUpdatePage() {
                             </b>
                         </span>
                         <div className="buttons">
-                            <div className="button">
+                            <button onClick={handleLogout}>
                                 <span>Logout</span>
-                                <Link onClick={handleLogout}>
-                                    <img
-                                        src="/power.png"
-                                        alt=""
-                                        className="icon"
-                                    />
-                                </Link>
-                            </div>
-                            {/* <div className="button">
-                                    <span>Update</span>
-                                    <Link to="/user/update">
-                                        <img
-                                            src="/update.png"
-                                            alt=""
-                                            className="icon"
-                                        />
-                                    </Link>
-                                </div> */}
+                                <img src="/power.png" alt="" className="icon" />
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -127,7 +111,7 @@ function ProfileUpdatePage() {
                                 folder: "Avatars",
                             }}
                             setState={setProfilePic}
-                            className="custom-upload-widget"
+                            text="select ⌵"
                         />
                     </div>
                 </div>

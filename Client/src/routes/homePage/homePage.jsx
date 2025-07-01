@@ -70,9 +70,7 @@ function HomePage() {
                     <span>Top Listings</span>
                     <div>
                         explore all
-                        <a href="/list">
-                            <img src="uploadB.png" alt="" />
-                        </a>
+                        <a href="/list">➔</a>
                     </div>
                 </div>
                 <Suspense

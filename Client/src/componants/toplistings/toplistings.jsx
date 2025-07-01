@@ -1,5 +1,5 @@
 import "./toplistings.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authContext } from "../../context/authContext";
 import { useContext } from "react";
 
@@ -39,7 +39,7 @@ function TopListings({ post }) {
                         </span>
 
                         <button className="btn" onClick={showDetails}>
-                            Details
+                            Details ≫
                         </button>
                     </div>
                 </div>

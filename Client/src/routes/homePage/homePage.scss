@@ -99,16 +99,6 @@
                 a {
                     display: flex;
                     align-items: center;
-
-                    img {
-                        width: 25px;
-                        height: 25px;
-
-                        @include sm {
-                            width: 20px;
-                            height: 20px;
-                        }
-                    }
                 }
             }
         }
