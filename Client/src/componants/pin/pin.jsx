@@ -8,6 +8,13 @@ function formatPrice(price) {
     return price.toLocaleString("en-IN");
 }
 
+const customIcon = new L.Icon({
+    iconUrl: "/marker.png",
+    iconSize: [32, 32], // adjust to your icon size
+    iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -32], // point from which the popup should open relative to the iconAnchor
+});
+
 function Pin({ item }) {
     const { currentUser } = useContext(authContext);
     const navigate = useNavigate();
@@ -18,7 +25,7 @@ function Pin({ item }) {
     };
 
     return (
-        <Marker position={[item.latitude, item.longitude]}>
+        <Marker position={[item.latitude, item.longitude]} icon={customIcon}>
             <Popup>
                 <div className="popupContainer">
                     <img src={item.images[0]} alt="" />
