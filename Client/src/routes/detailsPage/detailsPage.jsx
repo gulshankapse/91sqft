@@ -243,7 +243,7 @@ function DetailsPage() {
                             </div>
                             <p className="title">Location</p>
                             <div className="mapContainer">
-                                <Map items={[post]} zoom={15} />
+                                <Map items={[post]} zoom={15} show={false} />
                             </div>
                             <p className="title">Nearby Places</p>
                             <div className="listhorizontal">

@@ -15,7 +15,7 @@ const customIcon = new L.Icon({
     popupAnchor: [0, -32], // point from which the popup should open relative to the iconAnchor
 });
 
-function Pin({ item }) {
+function Pin({ item, show }) {
     const { currentUser } = useContext(authContext);
     const navigate = useNavigate();
 
@@ -26,15 +26,19 @@ function Pin({ item }) {
 
     return (
         <Marker position={[item.latitude, item.longitude]} icon={customIcon}>
-            <Popup>
-                <div className="popupContainer">
-                    <img src={item.images[0]} alt="" />
-                    <div className="textcontainer">
-                        <div onClick={() => showDetails()}>{item.title}</div>
-                        <b>₹ {formatPrice(item.price)}</b>
+            {show && (
+                <Popup>
+                    <div className="popupContainer">
+                        <img src={item.images[0]} alt="" />
+                        <div className="textcontainer">
+                            <div onClick={() => showDetails()}>
+                                {item.title}
+                            </div>
+                            <b>₹ {formatPrice(item.price)}</b>
+                        </div>
                     </div>
-                </div>
-            </Popup>
+                </Popup>
+            )}
         </Marker>
     );
 }

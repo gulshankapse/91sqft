@@ -1,15 +1,16 @@
 import "./searchbar.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const types = ["Buy", "Rent"];
 
 function SearchBar() {
+    const navigate = useNavigate();
     const [query, setQuery] = useState({
         type: "Buy",
         location: "",
-        minPrice: 0,
-        maxPrice: 0,
+        minPrice: "",
+        maxPrice: "",
     });
 
     const switchType = (val) => {
@@ -18,6 +19,18 @@ function SearchBar() {
 
     const handleChange = (e) => {
         setQuery((prv) => ({ ...prv, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!query.city || !query.minPrice || !query.maxPrice) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        navigate(
+            `/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}&bedrooms=any`,
+        );
     };
 
     return (
@@ -33,36 +46,33 @@ function SearchBar() {
                     </button>
                 ))}
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     onChange={handleChange}
                     type="text"
                     name="city"
                     placeholder="City"
+                    required
                 />
                 <input
                     onChange={handleChange}
                     type="number"
                     name="minPrice"
-                    min={1000}
-                    max={10000000}
                     placeholder="Min Price"
+                    required
                 />
                 <input
                     onChange={handleChange}
                     type="number"
                     name="maxPrice"
-                    min={1000}
-                    max={10000000}
                     placeholder="Max Price"
+                    required
                 />
-                <Link
-                    to={`/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
-                >
+                <div className="btn">
                     <button>
                         <img src="search.png" alt="" />
                     </button>
-                </Link>
+                </div>
             </form>
         </div>
     );

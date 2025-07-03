@@ -66,7 +66,7 @@ function HomePage() {
                 </div>
             </div>
             <div className="mid">
-                <div className="head">
+                <div className="headline">
                     <span>Top Listings</span>
                     <div>
                         explore all
