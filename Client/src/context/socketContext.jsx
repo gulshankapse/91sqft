@@ -12,12 +12,9 @@ export const SocketContextProvider = ({ children }) => {
         setSocket(io(`${API_URL}`));
     }, []);
 
-    // useEffect(()=>{
-    //   currentUser && socket?.emit("newUser" , currentUser.id)
-    // } , [currentUser , socket]);
     useEffect(() => {
         if (currentUser && socket) {
-            console.log("Emitting newUser event:", currentUser.id); // Debug log
+            console.log("Emitting newUser event:", socket);
             socket.emit("newUser", currentUser.id);
         }
     }, [currentUser, socket]);

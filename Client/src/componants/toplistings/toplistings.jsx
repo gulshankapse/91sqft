@@ -8,12 +8,20 @@ function formatPrice(price) {
 }
 
 function TopListings({ post }) {
-    const { currentUser } = useContext(authContext);
+    const { currentUser, updateUser } = useContext(authContext);
     const navigate = useNavigate();
 
     const showDetails = () => {
-        if (!currentUser) navigate("/login");
-        else navigate(`/${post.id}`);
+        const tokenExists = document.cookie
+            .split("; ")
+            .some((row) => row.startsWith("token="));
+
+        if (!currentUser) {
+            updateUser(null);
+            navigate("/login");
+        } else {
+            navigate(`/${post.id}`);
+        }
     };
 
     return (

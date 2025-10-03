@@ -10,7 +10,7 @@ export const detailsPageLoader = async ({ params }) => {
     return res.data;
 };
 
-export const listPageLoader = async ({ request, params }) => {
+export const listPageLoader = ({ request }) => {
     const query = request.url.split("?")[1];
     const postPromise = axios.get(`${API_URL}/posts?${query}`, {
         withCredentials: true,
@@ -20,7 +20,7 @@ export const listPageLoader = async ({ request, params }) => {
     });
 };
 
-export const myListLoader = async () => {
+export const myListLoader = () => {
     const postPromise = axios.get(`${API_URL}/users/posts`, {
         withCredentials: true,
     });

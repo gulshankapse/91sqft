@@ -25,3 +25,18 @@ export const AuthContextProvider = ({ children }) => {
         </authContext.Provider>
     );
 };
+
+// useEffect(() => {
+//         const tokenExists = document.cookie
+//             .split("; ")
+//             .some((row) => row.startsWith("token="));
+
+//         if (tokenExists) {
+//             const storedUser = localStorage.getItem("user");
+//             if (storedUser) {
+//                 setCurrentUser(JSON.parse(storedUser));
+//             }
+//         } else {
+//             updateUser(null);
+//         }
+//     }, []);

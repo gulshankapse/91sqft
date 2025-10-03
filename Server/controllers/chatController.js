@@ -80,7 +80,7 @@ export const addChat = async (req, res) => {
         const existingChat = await prisma.chat.findFirst({
             where: {
                 userIds: {
-                    equals: [tokenUserId, req.body.receiverId], // Ensures both users exist in the chat
+                    hasEvery: [tokenUserId, req.body.receiverId],
                 },
             },
         });
